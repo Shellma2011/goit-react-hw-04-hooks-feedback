@@ -54,36 +54,3 @@ export default function App() {
     </>
   );
 }
-// render() {
-//   const { good, neutral, bad } = this.state;
-//   return (
-//     <>
-//       <Section title="Please leave feedback">
-//         <FeedbackOptions options="Good" name="good" onLeaveFeedback={this.onLeaveFeedback} />
-//         <FeedbackOptions
-//           options="Neutral"
-//           name="neutral"
-//           onLeaveFeedback={this.onLeaveFeedback}
-//         />
-//         <FeedbackOptions options="Bad" name="bad" onLeaveFeedback={this.onLeaveFeedback} />
-//       </Section>
-
-//       <Section title="Statistics">
-//         {this.countTotalFeedback() === 0 ? (
-//           <Notification message="There is no feedback" />
-//         ) : (
-//           <Statistics
-//             good={good}
-//             neutral={neutral}
-//             bad={bad}
-//             total={this.countTotalFeedback()}
-//             positivePercentage={this.countPositiveFeedbackPercentage()}
-//           />
-//         )}
-//       </Section>
-//     </>
-//   );
-// }
-// }
-
-// export default App;
