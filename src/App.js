@@ -10,17 +10,35 @@ export default function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const onLeaveFeedbackGood = () => {
-    setGood(prevState => prevState + 1);
-  };
+  const onLeaveFeedback = option => {
+    switch (option) {
+      case 'Good':
+        setGood(prevState => prevState + 1);
+        break;
 
-  const onLeaveFeedbackNeutral = () => {
-    setNeutral(prevState => prevState + 1);
-  };
+      case 'Neutral':
+        setNeutral(prevState => prevState + 1);
+        break;
 
-  const onLeaveFeedbackBad = () => {
-    setBad(prevState => prevState + 1);
+      case 'Bad':
+        setBad(prevState => prevState + 1);
+        break;
+
+      default:
+        return;
+    }
   };
+  // const onLeaveFeedbackGood = () => {
+  //   setGood(prevState => prevState + 1);
+  // };
+
+  // const onLeaveFeedbackNeutral = () => {
+  //   setNeutral(prevState => prevState + 1);
+  // };
+
+  // const onLeaveFeedbackBad = () => {
+  //   setBad(prevState => prevState + 1);
+  // };
 
   const countTotalFeedback = () => good + neutral + bad;
 
@@ -29,13 +47,7 @@ export default function App() {
   return (
     <>
       <Section title="Please leave feedback">
-        <FeedbackOptions options="Good" name="good" onLeaveFeedback={onLeaveFeedbackGood} />
-        <FeedbackOptions
-          options="Neutral"
-          name="neutral"
-          onLeaveFeedback={onLeaveFeedbackNeutral}
-        />
-        <FeedbackOptions options="Bad" name="bad" onLeaveFeedback={onLeaveFeedbackBad} />
+        <FeedbackOptions options={['Good', 'Neutral', 'Bad']} onLeaveFeedback={onLeaveFeedback} />
       </Section>
 
       <Section title="Statistics">

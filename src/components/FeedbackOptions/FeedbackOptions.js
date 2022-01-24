@@ -18,15 +18,16 @@ const ButtonStyle = styled.button`
   transition: box-shadow 250ms linear;
 `;
 
-const FeedbackOptions = ({ options, name, onLeaveFeedback }) => (
-  <ButtonStyle type="buttom" name={name} onClick={onLeaveFeedback}>
-    {options}
-  </ButtonStyle>
-);
+function FeedbackOptions({ options, onLeaveFeedback }) {
+  return options.map(option => (
+    <ButtonStyle type="button" key={option} onClick={() => onLeaveFeedback(option)}>
+      {option}
+    </ButtonStyle>
+  ));
+}
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 
